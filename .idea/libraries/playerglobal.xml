@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="playerglobal">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/player/11.1/playerglobal.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="mx">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/mx/mx.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

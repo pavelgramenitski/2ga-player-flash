@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/src/scala-compiler-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/src/scala-dbc-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/src/sbaz-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/src/scala-library-src.jar!/" />
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/src/scala-swing-src.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

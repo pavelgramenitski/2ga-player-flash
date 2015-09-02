@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="FlexContentHolderThumbnail">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/projects/authoringsupport/libs/FlexContentHolderThumbnail.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="AppMeasurement">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/plugins/trackers/omniture/com/rightster/player/tracking/AppMeasurement.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

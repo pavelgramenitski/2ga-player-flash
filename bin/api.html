@@ -1,0 +1,495 @@
+<!-- <html> -->
+
+<head>
+<style>
+div {
+	padding: 10px;
+}
+
+p {
+	font-family: sans-serif;
+	color: white;
+}
+
+#main {
+
+	display: flex;
+
+}
+
+#main div {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 460px;
+}
+
+
+.highlighted {
+	position: relative;
+	
+	background-color: yellow;
+	width : 460;
+}
+
+.normal {
+	position: relative;
+	
+	background-color: #1d1d1d;
+	width : 460;
+}
+
+</style>
+
+<script language="JavaScript" type="text/javascript">
+        
+        //variable to hold reference to a player 
+        var player;
+        var env = "demo";
+        var videoId = "48bab21e-7d3e-4f9e-b718-f1705b54e3ac";
+        //playlist of 5  'a1c46726-ef4a-45b3-983c-146299ca94d0' 
+        var placementIds = [ '48bab21e-7d3e-4f9e-b718-f1705b54e3ac', 'a1c46726-ef4a-45b3-983c-146299ca94d0', 'c6ab3209-1e56-48e6-bbc4-4a490b54159c', 'e542eda3-b1b3-4efd-8928-501fe059eb2c','71a46cc3-108a-4ec9-972f-4b785a5ebb1a'];
+        var counter = 0
+			
+
+       /* RIGHTSTER PLAYER THIN CLIENT MODULE */
+        var RP = (function() {
+            var player;
+
+            return {
+
+                Player : function(id, config) {
+					
+					//use supplied param or default
+                    var id = id || "flashplayer"
+
+                    if (window.document[id]) {
+                        player = window.document[id];
+                    } else if (navigator.appName.indexOf("Microsoft") != -1) {
+                        player = window[id];
+                    } else {
+                        player = document[id];
+                    }
+
+                    if (config) {
+                        for (var key in config) {
+                            var value = config[key];
+                            if (key == 'events' && typeof value == 'object') {
+                                for (var eventName in value ) {
+                                    //for flash external interface api we need a function name, for html 5 just the function will suffice
+                                    player.subscribe(eventName, getFunctionName(value[eventName]));
+                                }
+                            }
+                        }
+                    }
+                    
+                    return player;
+                }
+            };
+        })();
+        
+        /*  REGISTRATION METHODS */
+        var rightsterPlayerRegistry = {}
+
+        function registerPlayer(player) {
+            displayMessage("registerPlayer id*" + player.id)
+            if (rightsterPlayerRegistry[player.id]) {
+                displayMessage("already registered")
+                return;
+            }
+
+            displayMessage("registration success")
+            rightsterPlayerRegistry[player.id] = player;
+        }
+        
+         function unregisterPlayer(player) {
+            displayMessage("registerPlayer id*" + player.id)
+            if (!rightsterPlayerRegistry[player.id]) {
+                displayMessage("not already registered")
+                return;
+            }
+
+            rightsterPlayerRegistry[player.id] = null;
+            delete rightsterPlayerRegistry[player.id];
+            displayMessage("unregistration success")
+        }
+
+		/*  CONVENIENCE METHOD */
+        function getPlayerWithId(id) {
+            displayMessage("getPlayerWithId * " + id)
+            if (!rightsterPlayerRegistry[id]) {
+                displayMessage("unregistered id: " + id)
+                return;
+            }
+
+            return rightsterPlayerRegistry[id];
+        }
+		
+        /*  PROOFING METHODS */
+		function switchPlayer(){
+        	displayMessage("switch from player with id:" + player.id);
+        	
+        	for ( var key in rightsterPlayerRegistry){
+				var registeredPlayer = rightsterPlayerRegistry[key];
+				var registeredPlayerId = registeredPlayer;
+				
+				if ( registeredPlayer !== player ) {
+					player = registeredPlayer;
+					displayMessage("switch to player with id:" + player.id);
+					toggleHighlight()
+					return;
+				}
+			}
+			
+			displayMessage("no success with id * " + id);
+		}
+        
+        function toggleHighlight(){
+        	
+        	var highlighted = document.getElementsByClassName("highlighted");
+        	var current = highlighted[0]
+        	
+        	var normal = document.getElementsByClassName("normal");
+        	var target = normal[0]
+        	
+        	if (current && target ){
+        		current.className = "normal"
+        		target.className = "highlighted"
+        	}
+        }
+
+		/*  API READY GLOBAL METHOD */
+        function onRightsterPlayerApiReady(playerId) {
+            displayMessage("onRightsterPlayerApiReady playerId:" + playerId);
+           
+            var tmpPlayer = new RP.Player(playerId, {
+                width : '460',
+                height : '290',
+          
+                playerVars : {
+                    autoplay : 1,
+                },
+                events : {
+                   
+                    'onStateChange' : onPlayerStateChange
+                }
+            });
+
+			//register
+          //  registerPlayer(tmpPlayer)
+            
+            //test unregister
+            //unregisterPlayer(tmpPlayer)
+
+			//associate and test registration
+			if (!player){
+				 player = getPlayerWithId(playerId)
+			}
+            
+        }
+		
+		/* EXAMPLE API METHODS*/
+        function cueVideoById(param) {
+        	var id = placementIds [counter];
+        	counter = (counter == placementIds.length - 1) ? 0 : counter + 1;
+        	referrerValue = "http:\/\/platformplayer.demo.rightster.com"
+            player.cueVideoById({
+                placementid : id,
+                referrer : referrerValue
+            });
+             displayMessage("cueVideoById : " + id);
+        }
+
+        function loadVideoById(param) {
+        	var id = placementIds [counter];
+        	counter = (counter == placementIds.length - 1) ? 0 : counter + 1;
+        	referrerValue = "http:\/\/platformplayer.demo.rightster.com"
+            player.loadVideoById({
+                placementid : id,
+                referrer : referrerValue
+            });
+             displayMessage("loadVideoById : " + id);
+        }
+        
+        function cuePlaylist(param) {
+        	var id = placementIds [counter];
+        	counter = (counter == placementIds.length - 1) ? 0 : counter + 1;
+        	referrerValue = "http:\/\/platformplayer.demo.rightster.com"
+            player.cuePlaylist({
+                placementid : id,
+                referrer : referrerValue
+            });
+             displayMessage("cuePlaylistById : " + id);
+        }
+
+        function loadPlaylist(param) {
+        	var id = placementIds [counter];
+        	counter = (counter == placementIds.length - 1) ? 0 : counter + 1;
+        	referrerValue = "http:\/\/platformplayer.demo.rightster.com"
+            player.loadPlaylist({
+                placementid : id,
+                referrer : referrerValue
+            });
+             displayMessage("loadPlaylistById : " + id);
+        }
+
+        function playVideo() {
+            player.playVideo();
+            displayMessage("playVideo");
+        }
+
+        function pauseVideo() {
+            player.pauseVideo();
+            displayMessage("pauseVideo");
+        }
+
+        function seekTo() {
+            var value = 10
+            player.seekTo(value, true);
+            displayMessage("seekTo: " + value);
+        }
+
+        function nextVideo() {
+            player.nextVideo();
+            displayMessage("nextVideo");
+        }
+
+        function previousVideo() {
+            player.previousVideo();
+            displayMessage("previousVideo");
+        }
+
+        function playVideoAt(param) {
+            var value = param
+            player.playVideoAt(value);
+            displayMessage("playVideoAt: " + value);
+        }
+
+        function mute() {
+            player.mute();
+            displayMessage("mute");
+        }
+
+        function unMute() {
+            player.unMute();
+            displayMessage("unMute");
+        }
+
+        function isMuted() {
+            var value = player.isMuted();
+            displayMessage("isMuted: " + value);
+        }
+
+        function setVolume(value) {
+            player.setVolume(value);
+            displayMessage("setVolume: " + value);
+        }
+
+        function getVolume() {
+            var value = player.getVolume();
+            displayMessage("getVolume: " + value);
+        }
+
+        function setSize(width, height) {
+            displayMessage("setSize: " + width + " x " + height);
+            displayMessage("Javascript implementation required..");
+        }
+
+        function getVideoBytesLoaded() {
+            var value = player.getVideoBytesLoaded();
+            displayMessage("getVideoBytesLoaded: " + value);
+        }
+
+        function getVideoBytesTotal() {
+            var value = player.getVideoBytesTotal();
+            displayMessage("getVideoBytesTotal: " + value);
+        }
+
+        function getVideoStartBytes() {
+            var value = player.getVideoStartBytes();
+            displayMessage("getVideoStartBytes: " + value);
+        }
+
+        function getPlayerState() {
+            var value = player.getPlayerState();
+            displayMessage("getPlayerState: " + value);
+        }
+
+        function getCurrentTime() {
+            var value = player.getCurrentTime();
+            displayMessage("getCurrentTime: " + value);
+        }
+
+        function getPlaybackQuality() {
+            var value = player.getPlaybackQuality();
+            displayMessage("getPlaybackQuality: " + value);
+        }
+
+        function setPlaybackQuality() {
+            var value = "haddock"
+            player.setPlaybackQuality(value);
+            displayMessage("setPlaybackQuality: " + value);
+        }
+
+        function getAvailableQualityLevels() {
+            var value = player.getAvailableQualityLevels();
+            displayMessage("getAvailableQualityLevels: " + value);
+        }
+
+        function getDuration() {
+            var value = player.getDuration();
+            displayMessage("getDuration: " + value);
+        }
+
+        function setLoop(param) {
+            var value = param
+            displayMessage("setLoop: " + value);
+            player.setLoop(param)
+        }
+
+        function setShuffle(param) {
+            var value = param
+            displayMessage("setShuffle: " + value);
+            player.setShuffle(param)
+        }
+
+        function getPlaylist() {
+            var value = player.getPlaylist();
+            displayMessage("getPlaylist: " + value);
+        }
+
+        function getPlaylistIndex() {
+            var value = player.getPlaylistIndex();
+            displayMessage("getPlaylistIndex: " + value);
+        }
+
+        function videoState() {
+            var value = player.getPlayerState();
+            displayMessage("videoState: " + value);
+
+        }
+
+        function onPlayerStateChange(infoObj) {
+            var value = infoObj;
+            displayMessage("onPlayerStateChange: state:" + infoObj.state + " playerId:" + infoObj.playerId);
+        }
+
+        function subscribed(name, value) {
+            displayMessage("subscribed *eventType: " + name + " functionName: " + value);
+        }
+
+        function onPlayerReady(param) {
+            var value = param;
+            displayMessage("onPlayerReady: " + value);
+        }
+
+        function displayMessage(value) {
+            document.getElementById("txtoutput").value += "\n" + value;
+            console.log("displayMessage: " + value);
+        }
+        
+        function clearConsole() {
+            document.getElementById("txtoutput").value = "";
+        }
+
+        function getFunctionName(fnc) {
+            var str = fnc.toString();
+          	str = str.substr('function '.length).substr(0, str.indexOf('{'));
+          	str = str.substr (0, str.indexOf('(') ) 
+            return str;
+        }
+
+</script>
+
+</head>
+
+<body bgColor="#1d1d1d">
+	<div id="main">
+		<div id="first" class="highlighted">
+			<object class="video-player" type="application/x-shockwave-flash"
+				id="flashplayerfoo"
+				name="flashplayerfoo"
+				pluginspage="http://www.macromedia.com/go/getflashplayer"
+				data="player.swf" width="460" height="290">
+				<param name="movie" value="player.swf">
+				<param name="wmode" value="window">
+				<param name="allowFullScreen" value="true">
+				<param name="allowScriptAccess" value="always">
+				<param name="allowNetworkAccess" value="always">
+				<param name="FlashVars"
+					value="placementId=311820a7-4df9-4008-9ea0-29ba55166b20&referrer=http://platformplayer.qa1.rightster.com&autoplay=0&startMuted=1">
+			</object>
+		</div>
+		<div id="second" class="normal">
+			<object class="video-player" type="application/x-shockwave-flash"
+				id="flashplayerbar"
+				name="flashplayerbar"
+				pluginspage="http://www.macromedia.com/go/getflashplayer"
+				data="player.swf" width="460" height="290">
+				<param name="movie" value="player.swf">
+				<param name="wmode" value="window">
+				<param name="allowFullScreen" value="true">
+				<param name="allowScriptAccess" value="always">
+				<param name="allowNetworkAccess" value="always">
+				<param name="FlashVars"
+					value="placementId=311820a7-4df9-4008-9ea0-29ba55166b20&referrer=http://platformplayer.qa1.rightster.com&autoplay=0">
+			</object>
+			
+		</div>
+	</div>
+	<div>
+		<input type="button" value="Control other Player" onclick="switchPlayer();">
+	</div>
+	<div>
+		<input type="button" value="Play video" onclick="playVideo();">
+		<input type="button" value="Pause video" onclick="pauseVideo();">
+		<input type="button" value="Previous video" onclick="previousVideo();">
+		<input type="button" value="Next video" onclick="nextVideo();">
+		<input type="button" value="Load video" onclick="loadVideoById();">
+		<input type="button" value="Cue video" onclick="cueVideoById();">
+		<input type="button" value="Load playlist" onclick="loadPlaylist();">
+		<input type="button" value="Cue playlist" onclick="cuePlaylist();">
+		<input type="button" value="setShuffle true" onclick="setShuffle(true);">
+		<input type="button" value="setShuffle false" onclick="setShuffle(false);">
+	</div>
+	<div>
+		<input type="button" value="Set Volume 25" onclick="setVolume(25);">
+		<input type="button" value="Set Volume 100" onclick="setVolume(100);">
+		<input type="button" value="Mute video" onclick="mute();">
+		<input type="button" value="Unmute video" onclick="unMute();">
+		<input type="button" value="isMuted" onclick="isMuted();">
+		<input type="button" value="getVolume" onclick="getVolume();">
+	</div>
+	<div>
+		<input type="button" value="getVideoBytesLoaded" onclick="getVideoBytesLoaded();">
+		<input type="button" value="getVideoBytesTotal" onclick="getVideoBytesTotal();">
+		<input type="button" value="getVideoStartBytes" onclick="getVideoStartBytes();">
+		<input type="button" value="getPlayerState" onclick="getPlayerState();">
+	</div>
+	<div>
+		<input type="button" value="getCurrentTime" onclick="getCurrentTime();">
+		<input type="button" value="getPlaybackQuality" onclick="getPlaybackQuality();">
+		<input type="button" value="setPlaybackQuality" onclick="setPlaybackQuality();">
+		<input type="button" value="getAvailableQualityLevels" onclick="getAvailableQualityLevels();">
+		<input type="button" value="getDuration" onclick="getDuration();">
+		<input type="button" value="getPlaylist" onclick="getPlaylist();">
+		<input type="button" value="getPlaylistIndex" onclick="getPlaylistIndex();">
+	</div>
+	<div>
+		<input type="button" value="videoState" onclick="videoState();">
+		<input type="button" value="playVideoAt 0" onclick="playVideoAt(0);">
+		<input type="button" value="playVideoAt 1" onclick="playVideoAt(1);">
+		<input type="button" value="setLoop 0" onclick="setLoop(0);">
+		<input type="button" value="setLoop 1" onclick="setLoop(1);">
+		<input type="button" value="setLoop 2" onclick="setLoop(2);">
+		<input type="button" value="setSize 900,700" onclick="setSize(900,700);">
+	</div>
+	<div id="description">
+		<p>
+			Console:
+		</p>
+		
+		<textarea id="txtoutput" cols="110" rows="20">
+		</textarea>
+	</div>
+	<div><input type="button" value="Clear console" onclick="clearConsole();"></div>
+</body>

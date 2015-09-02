@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:flexUnitUIRunner="http://www.adobe.com/2009/flexUnitUIRunner"
+	creationComplete="runAllTests();" layout="absolute">
+
+	<mx:Script>
+		<![CDATA[
+			import flexUnitTests.testsuites.TestSuiteAll;
+
+			import org.flexunit.listeners.CIListener;
+			import org.flexunit.listeners.UIListener;
+			import org.flexunit.runner.FlexUnitCore;
+
+			import flash.system.Capabilities;
+
+			public function runAllTests() : void {
+				var core : FlexUnitCore = new FlexUnitCore();
+
+				// comment out for no graphical representation
+				if (shouldShowGraphicalOutput()) {
+					core.addListener(new UIListener(uiListener));
+				}
+
+				core.addListener(new CIListener());
+				core.run(TestSuiteAll);
+			}
+
+			private function shouldShowGraphicalOutput() : Boolean {
+				return (Capabilities.os.indexOf("Mac") || Capabilities.os.indexOf("Win")) ? true : false;
+			}
+		]]>
+	</mx:Script>
+	<flexUnitUIRunner:TestRunnerBase id="uiListener" width="100%"
+		height="100%"/>
+</mx:Application>

@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="sv_SE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/airspark_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/mx_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/spark_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/textLayout_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/advancedgrids_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/charts_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/automation_agent_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/mobilecomponents_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/osmf_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/rpc_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/automation_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/framework_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/qtp_air_rb.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/locale/sv_SE/airframework_rb.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

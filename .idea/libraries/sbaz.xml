@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="sbaz">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/misc/sbaz/scala-bazaars.jar!/" />
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/misc/sbaz/sbaz-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

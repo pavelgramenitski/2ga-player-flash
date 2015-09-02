@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ima_lib_as3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/plugins/monetisation/com/rightster/player/google/ima_lib_as3.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

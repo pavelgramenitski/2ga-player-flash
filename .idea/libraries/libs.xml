@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/spark.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/framework.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/sparkskins.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/charts.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/advancedgrids.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/core.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/flash-integration.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/osmf.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/authoringsupport.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/rpc.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/spark_dmv.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/textLayout.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

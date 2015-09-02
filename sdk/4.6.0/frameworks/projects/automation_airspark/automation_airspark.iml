@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="Flex" version="4">
+  <component name="FlexBuildConfigurationManager" active="Unnamed">
+    <configurations>
+      <configuration>
+        <dependencies />
+        <compiler-options />
+        <packaging-air-desktop />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
+    </configurations>
+    <compiler-options />
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="mobilecomponents" level="project" />
+    <orderEntry type="library" exported="" name="mx" level="project" />
+    <orderEntry type="library" exported="" name="da_DK" level="project" />
+    <orderEntry type="library" exported="" name="fi_FI" level="project" />
+    <orderEntry type="library" exported="" name="fr_FR" level="project" />
+    <orderEntry type="library" exported="" name="ko_KR" level="project" />
+    <orderEntry type="library" exported="" name="nl_NL" level="project" />
+    <orderEntry type="library" exported="" name="AppMeasurement" level="project" />
+    <orderEntry type="library" exported="" name="air" level="project" />
+    <orderEntry type="library" exported="" name="es_ES" level="project" />
+    <orderEntry type="library" exported="" name="zh_TW" level="project" />
+    <orderEntry type="library" exported="" name="ru_RU" level="project" />
+    <orderEntry type="library" exported="" name="en_US" level="project" />
+    <orderEntry type="library" exported="" name="libs" level="project" />
+    <orderEntry type="library" exported="" name="automation" level="project" />
+    <orderEntry type="library" exported="" name="it_IT" level="project" />
+    <orderEntry type="library" exported="" name="nb_NO" level="project" />
+    <orderEntry type="library" exported="" name="sv_SE" level="project" />
+    <orderEntry type="library" exported="" name="zh_CN" level="project" />
+    <orderEntry type="library" exported="" name="playerglobal" level="project" />
+    <orderEntry type="library" exported="" name="ja_JP" level="project" />
+    <orderEntry type="library" exported="" name="pt_BR" level="project" />
+    <orderEntry type="library" exported="" name="de_DE" level="project" />
+  </component>
+</module>

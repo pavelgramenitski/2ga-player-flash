@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wireframe">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/themes/Wireframe/wireframe.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

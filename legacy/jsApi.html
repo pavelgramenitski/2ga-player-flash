@@ -1,0 +1,183 @@
+<!-- <html> -->
+
+<head>
+
+<script language="JavaScript" type="text/javascript">
+
+        var videoPlayer;
+        var eventStatusMessage = "";
+
+        function onTemplateLoaded() {
+	         if (navigator.appName.indexOf("Microsoft") != -1) {
+	        	 videoPlayer = window['rightsterPlayer'];
+	         } else {
+	        	 videoPlayer = document['rightsterPlayer'];
+	         }
+
+	         eventStatusMessage = "Page loaded. Player  " + videoPlayer + "\n";
+	         document.getElementById('txtoutput').value = eventStatusMessage;
+        }
+
+		function cueVideoById() {
+            videoPlayer.cueVideoById({video_id : '01z13zfy'});
+        }
+
+		function loadVideoById() {
+            videoPlayer.loadVideoById({video_id : '01z10le8'});
+        }
+
+        function playVideo() {
+            videoPlayer.playVideo();
+        }
+
+        function pauseVideo() {
+        	videoPlayer.pauseVideo();
+        }
+
+        function stopVideo() {
+		        	videoPlayer.stopVideo();
+        }
+
+		function seekTo() {
+		        	videoPlayer.seekTo(50,true);
+					}
+
+		/*function nextVideo() {
+		        	videoPlayer.nextVideo();
+					}
+
+		function previousVideo() {
+		        	videoPlayer.previousVideo();
+					}*/
+
+		function playVideoAt() {
+		        	videoPlayer.playVideoAt();
+					}
+
+		function mute() {
+		        	videoPlayer.mute();
+					}
+
+		function unMute() {
+		        	videoPlayer.unMute();
+					}
+
+		function isMuted() {
+				var str = videoPlayer.isMuted();
+				document.getElementById('txtoutput').value = 'isMuted:-   '+str;
+					}
+
+		function setVolume() {
+		        	videoPlayer.setVolume(22);
+					}
+
+		function getVolume() {
+				var str = videoPlayer.getVolume();
+				document.getElementById('txtoutput').value = 'getVolume:-   '+str;
+		        	///videoPlayer.getVolume();
+					}
+
+		function setSize() {
+		        	videoPlayer.setSize(900,700);
+					document.getElementById('rightsterPlayer').style.width="900px";
+					document.getElementById('rightsterPlayer').style.height="700px";
+					}
+
+		function getVideoBytesLoaded() {
+		        	var str = videoPlayer.getVideoBytesLoaded();
+					document.getElementById('txtoutput').value = 'getVideoBytesLoaded:-   '+str;
+					}
+
+		function getVideoBytesTotal() {
+		        	var str = videoPlayer.getVideoBytesTotal();
+					document.getElementById('txtoutput').value = 'getVideoBytesTotal:-   '+str;
+					}
+
+		function getVideoStartBytes() {
+		        	var str = videoPlayer.getVideoStartBytes();
+					document.getElementById('txtoutput').value = 'getVideoStartBytes:-   '+str;
+					}
+
+		function getPlayerState() {
+		        	var str = videoPlayer.getPlayerState();
+					document.getElementById('txtoutput').value = 'getPlayerState:-   '+str;
+					}
+
+		function getCurrentTime() {
+		        	var str = videoPlayer.getCurrentTime();
+					document.getElementById('txtoutput').value = 'getCurrentTime:-   '+str;
+					}
+
+		function getPlaybackQuality() {
+		        	var str = videoPlayer.getPlaybackQuality();
+					document.getElementById('txtoutput').value = 'getPlaybackQuality:-   '+str;
+					}
+
+		function setPlaybackQuality() {
+		        	videoPlayer.setPlaybackQuality('HI');
+					///document.getElementById('txtoutput').value = 'getPlaybackQuality:-   '+str;
+					}
+
+		function getAvailableQualityLevels() {
+		        	var str = videoPlayer.getAvailableQualityLevels();
+					document.getElementById('txtoutput').value = 'getAvailableQualityLevels:-   '+str;
+					}
+
+		function getDuration() {
+		        	var str = videoPlayer.getDuration();
+					document.getElementById('txtoutput').value = 'getDuration:-   '+str;
+					}
+
+		/*function getVideoUrl() {
+					var url = window.location.href.toString();
+		        	var str = videoPlayer.getVideoUrl();
+					document.getElementById('txtoutput').value = 'getVideoUrl:-   '+str+'  <<<>  '+url;
+					}
+
+		function getVideoEmbedCode() {
+		        	var str = videoPlayer.getVideoEmbedCode();
+					document.getElementById('txtoutput').value = 'getVideoEmbedCode:-   '+str;
+					}
+					*/
+		function getPlaylist() {
+		        	videoPlayer.getPlaylist();
+					}
+
+		function getPlaylistIndex() {
+		        	videoPlayer.getPlaylistIndex();
+					}
+
+        function videoState() {
+            eventStatusMessage = eventStatusMessage + "State: " + videoPlayer.getPlayerState() + "\n";
+            document.getElementById('txtoutput').value = eventStatusMessage;
+        }"bin/jsApi.html"
+
+        function onStateChange(value) {
+            eventStatusMessage = eventStatusMessage + "onStateChange: " + value + "\n";
+            document.getElementById('txtoutput').value = eventStatusMessage;
+        }
+
+    </script>
+
+</head>
+
+<body onload="onTemplateLoaded();">
+
+ <object id="rightsterPlayer" class="rightsterPlayer" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" data="Player.swf" width="636" height="357">
+        <param name="movie" value="Player.swf" />
+        <param name="wmode" value="window" />
+        <param name="allowFullScreen" value="true" />
+        <param name="allowScriptAccess" value="always" />
+        <param name="allowNetworkAccess" value="always" />
+      </object>
+<br><br>
+<input type="button" value="Cue video" onclick="cueVideoById();">
+<input type="button" value="Load video" onclick="loadVideoById();">
+
+<div id="description">
+            <p>
+                API events:</p>
+            <textarea id="txtoutput" cols="40" rows="20"
+        </textarea>
+        </div>
+</body>

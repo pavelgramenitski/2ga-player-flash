@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="fabridge">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/javascript/fabridge/samples/srcview/fabridge.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

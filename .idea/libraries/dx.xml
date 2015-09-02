@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dx">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/lib/android/bin/dx.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

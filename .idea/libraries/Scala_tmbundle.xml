@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Scala.tmbundle">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/scala-2.8.1.final/misc/scala-tool-support/textmate/Bundles/Scala.tmbundle.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

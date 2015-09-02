@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/lwjgl-util-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/lwjgl-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/de.huxhorn.sulky.3rdparty.jlayer-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/asm-tree-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/asm-analysis-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/asm-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/jinput-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/asm-util-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/apparat-1.0-RC9/lib/asm-commons-3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

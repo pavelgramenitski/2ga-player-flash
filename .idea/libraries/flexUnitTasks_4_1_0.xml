@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="flexUnitTasks-4.1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/flexUnitTests/lib/flexUnitTasks-4.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="air">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/applicationupdater_ui.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/airframework.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/aircore.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/airspark.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/applicationupdater.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/servicemonitor.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/air/airglobal.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,1 @@
+package com.rightster.player {	/**	 * @author KJR	 */	public class Version {		public static const VERSION : String = "1.1.6.3";	}}

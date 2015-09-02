@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="flexUnitTests.testsuites.Tests.view.TestCaseBaseColors" tests="24" failures="0" errors="0" skipped="0" time="0.06" hostname="Kens-MacBook-Pro.local" timestamp="2015-08-20T13:42:45">
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_clockInactive" time="0.001"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_inactiveColor" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_inactive" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_highlightColor" time="0.001"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_highlight" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_selectedColor" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_selected" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_backgroundColor" time="0.001"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_background" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_advert" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_clockInactiveColor" time="0.031"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_advertColor" time="0.001"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_overlay" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_baseAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_baseAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_overlayAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_highlightOffAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_highlightAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_highlightAlpha" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_reinitialization_does_not_reset_default_primaryColor" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_primary" time="0.025"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_primaryColor" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_initialize_sets_base" time="0.0"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.view::TestCaseBaseColors" name="test_set_get_baseColor" time="0.0"/>
+</testsuite>

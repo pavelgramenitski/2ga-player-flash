@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project name="AutomatedBuildFlashPlayer" default="RunAutomatedBuild" basedir=".">
+
+	<!-- Configure source paths -->
+	<fileset id="sources" dir="${basedir}/src">
+		<include name="**/*.as" />
+	</fileset>
+
+	<!-- Configure prefix for all environment variables -->
+	<property environment="env" />
+
+	<!-- Configure mxmlc properties -->
+	<property name="mxmlc.incremental" value="false" />
+	<property name="mxmlc.keep_generated_as" value="false" />
+	<property name="mxmlc.locale" value="en_US" />
+	<property name="mxmlc.actionscript-file-encoding" value="UTF-8" />
+	<property name="mxmlc.static-rsls" value="true" />
+
+	<!-- Configure paths for build -->
+	<property name="main.src.loc" location="${basedir}/src/" />
+	<property name="test.src.loc" location="${basedir}/src/flexUnitTests/" />
+	<property name="lib.loc" location="${basedir}/src/flexUnitTests/lib" />
+
+	<property name="skins.loc" location="${basedir}/bin/skins" />
+	<property name="assets.loc" location="${basedir}/bin/assets" />
+	<property name="plugins.loc" location="${basedir}/bin/plugins" />
+	<property name="player.loc" location="${basedir}/bin" />
+
+	<!-- Configure main output directory and subdirectories-->
+	<property name="output.loc" location="${basedir}/test-run" />
+	<property name="report.loc" location="${output.loc}/report" />
+	<property name="test.loc" location="${output.loc}/test" />
+
+	<!-- Configure Flex and FlexUnit ant tasks -->
+	<property name="FLEX_HOME" location="${basedir}/sdk/4.6.0/" />
+	<property name="flex.config" location="${FLEX_HOME}/frameworks/flex-config.xml" />
+	<property name="flex.libs" location="${FLEX_HOME}/frameworks/libs" />
+	<property name="flex.mxmlc" location="${FLEX_HOME}/bin/mxmlc/" />
+	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+	<taskdef resource="flexUnitTasks.tasks" classpath="${lib.loc}/flexUnitTasks-4.1.0.jar" />
+
+	<!-- Configure Apparat and Scala -->
+	<property name="APPARAT_HOME" location="${basedir}/apparat-1.0-RC9" />
+	<property name="SCALA_HOME" location="${basedir}/scala-2.8.1.final" />
+	<path id="7Z">
+		<pathelement path="/usr/bin/7a" />
+	</path>
+
+	<path id="apparat.path">
+		<fileset dir="${SCALA_HOME}" includes="lib/*.jar" />
+		<fileset dir="${APPARAT_HOME}" includes="*.jar" />
+	</path>
+	<taskdef resource="apparat/embedding/ant/antlib.xml">
+		<classpath refid="apparat.path" />
+	</taskdef>
+
+	<!-- Remove all directories created during the build process -->
+	<target name="Clean">
+		<delete dir="${output.loc}" />
+		<echo message="Deleting output dir: ${output.loc}" />
+	</target>
+
+	<!-- Create directories needed for the build process -->
+	<target name="Init" depends="Clean">
+		<mkdir dir="${output.loc}" />
+		<mkdir dir="${report.loc}" />
+		<echo message="Creating output dir: ${output.loc}" />
+		<echo message="Creating report subdir: ${output.loc}" />
+	</target>
+
+	<!-- Compile Player -->
+	<target name="Player">
+		<echo message="Compiling Player" />
+		<mxmlc file="${basedir}/src/com/rightster/player/Player.as" output="${player.loc}/player.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.define name="CONFIG::DEBUG" value="false" />
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+
+	<!-- Compile LiveRailMonetisation -->
+	<target name="LiveRailMonetisation">
+		<echo message="Compiling LiveRailMonetisation" />
+		<mxmlc file="${basedir}/plugins/monetisation/com/rightster/player/liveRail/LiveRailMonetisation.as" output="${plugins.loc}/LiveRailMonetisation.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/plugins/monetisation" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<library-path dir="${APPARAT_HOME}" includes="*" append="true" />
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+			<warnings>false</warnings>
+		</mxmlc>
+
+		<!--
+		<tdsi inline="true" macro="true" in="${bin.loc}/plugins/LiveRailMonetisation.swf" out="${bin.loc}/plugins/LiveRailMonetisation.swf" fork="true">
+			<classpath refid="apparat.path" />
+			<jvmarg value="-Dapparat.7z.path={7z}" />
+		</tdsi>
+		-->
+	</target>
+
+	<!-- Compile GoogleMonetisation -->
+	<target name="GoogleMonetisation">
+		<echo message="Compiling GoogleMonetisation" />
+		<mxmlc file="${basedir}/plugins/monetisation/com/rightster/player/google/GoogleMonetisation.as" output="${plugins.loc}/GoogleMonetisation.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/plugins/monetisation" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.library-path dir="${basedir}/plugins/monetisation/com/rightster/player/google" append="true">
+				<include name="ima_lib_as3.swc" />
+			</compiler.library-path>
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+
+	<!-- Compile Quantcast -->
+	<target name="Quantcast">
+		<echo message="Compiling Quantcast" />
+		<mxmlc file="${basedir}/plugins/monetisation/com/rightster/player/quantcast/Quantcast.as" output="${plugins.loc}/Quantcast.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/plugins/monetisation" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+
+	<!-- Compile TwoGATracker -->
+	<target name="TwoGATracker">
+		<echo message="Compiling TwoGATracker" />
+		<mxmlc file="${basedir}/plugins/trackers/rightstertracker/com/rightster/analytics/TwoGATracker.as" output="${plugins.loc}/TwoGATracker.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/plugins/trackers/rightstertracker" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+
+	<!-- Compile AkamaiLiveStream -->
+	<target name="AkamaiLiveStream">
+		<echo message="Compiling AkamaiLiveStream" />
+		<mxmlc file="${basedir}/plugins/mediaproviders/com/rightster/player/media/AkamaiLiveStream.as" output="${plugins.loc}/AkamaiLiveStream.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/plugins/mediaproviders" />
+			<source-path path-element="${basedir}/plugins/trackers/rightstertracker" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.library-path dir="${basedir}/plugins/mediaproviders/com/rightster/player/media" append="true">
+				<include name="HDCore-3.8.swc" />
+			</compiler.library-path>
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+
+	<!-- Compile Skin -->
+	<target name="Skin">
+		<echo message="Compiling Skin" />
+		<mxmlc file="${basedir}/skins/default/com/rightster/player/skin/Skin.as" output="${skins.loc}/default.swf" locale="${mxmlc.locale}" actionscript-file-encoding="${mxmlc.actionscript-file-encoding}" incremental="${mxmlc.incremental}" static-rsls="${mxmlc.static-rsls}" fork="true">
+			<load-config filename="${flex.config}" />
+			<source-path path-element="${basedir}/skins/default" />
+			<source-path path-element="${basedir}/codebase" />
+			<source-path path-element="${basedir}/src" />
+			<compiler.optimize>true</compiler.optimize>
+			<compiler.debug>false</compiler.debug>
+			<compiler.verbose-stacktraces>false</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+			<compiler.show-deprecation-warnings>false</compiler.show-deprecation-warnings>
+		</mxmlc>
+	</target>
+
+
+	<!-- Compile Test Runner -->
+	<target name="PerformTesting" depends="Init">
+		<echo message="Compiling Test Runner start..." />
+		<sequential>
+			<echo message="Compiling swf..." />
+			<!-- Compile TestRunner.swf -->
+			<mxmlc file="${test.src.loc}/TestRunnerCI.mxml" output="${test.loc}/TestRunner.swf" static-rsls="${mxmlc.static-rsls}">
+				<default-size width="800" height="600" />
+				<source-path path-element="${basedir}/plugins/monetisation" />
+				<source-path path-element="${basedir}/plugins/mediaproviders" />
+				<source-path path-element="${basedir}/plugins/trackers/rightstertracker" />
+				<source-path path-element="${basedir}/codebase" />
+				<source-path path-element="${basedir}/src" />
+				<compiler.library-path dir="${lib.loc}" append="true">
+					<include name="*.swc" />
+				</compiler.library-path>
+				<compiler.library-path dir="${basedir}/plugins/mediaproviders/com/rightster/player/media" append="true">
+					<include name="HDCore-3.8.swc" />
+				</compiler.library-path>
+				<compiler.library-path dir="${basedir}/plugins/monetisation/com/rightster/player/google" append="true">
+					<include name="ima_lib_as3.swc" />
+				</compiler.library-path>
+				<compiler.verbose-stacktraces>true</compiler.verbose-stacktraces>
+				<compiler.headless-server>true</compiler.headless-server>
+			</mxmlc>
+
+			<!-- Execute TestRunner.swf as FlexUnit tests and publish reports -->
+			<echo message="Executing Test Runner..." />
+			<flexunit swf="${test.loc}/TestRunner.swf" toDir="${report.loc}" haltonfailure="false" verbose="false" localTrusted="true" timeout="10000" failureproperty="flexunit.failed" />
+			<echo message="Generating Report..." />
+
+			<!-- Generate readable JUnit-style reports -->
+			<junitreport todir="${report.loc}">
+				<fileset dir="${report.loc}">
+					<include name="TEST-*.xml" />
+				</fileset>
+				<report format="frames" todir="${report.loc}/html" />
+			</junitreport>
+		</sequential>
+	</target>
+
+	<!-- Package distribution -->
+	<!--<target name="Package">
+		<echo message="Packaging..." />
+			<zip destfile="${dist.loc}/${ant.project.name}.zip">
+				<fileset dir="${basedir}/bin" />
+			</zip>
+	</target>-->
+
+	<!-- default target runs all with testing-->
+	<target name="RunAutomatedBuild" depends="Player,LiveRailMonetisation,GoogleMonetisation,Quantcast,AkamaiLiveStream,Skin,PerformTesting" />
+	<!--  target runs all without testing-->
+	<target name="RunAutomatedBuildNoTests" depends="Player,LiveRailMonetisation,GoogleMonetisation,Quantcast,AkamaiLiveStream,Skin" />
+
+</project>

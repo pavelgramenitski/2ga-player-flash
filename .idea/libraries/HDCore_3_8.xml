@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="HDCore-3.8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/plugins/mediaproviders/com/rightster/player/media/HDCore-3.8.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

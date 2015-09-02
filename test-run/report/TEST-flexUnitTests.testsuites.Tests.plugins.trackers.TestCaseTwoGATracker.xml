@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="flexUnitTests.testsuites.Tests.plugins.trackers.TestCaseTwoGATracker" tests="10" failures="0" errors="0" skipped="0" time="1.105" hostname="Kens-MacBook-Pro.local" timestamp="2015-08-20T13:42:46">
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_initialize_without_parameterized_data_should_succeed" time="0.309"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_close_expect_error_if_not_initialized" time="0.072"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_mockController_should_not_be_null" time="0.063"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_run_should_succeed_if_initialized" time="0.086"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_close_should_succeed_if_initialized" time="0.08"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_close_should_remain_initialized" time="0.081"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_run_expect_error_if_not_initialized" time="0.083"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_constructor_sets_loaded" time="0.082"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_constructor_sets_zIndex" time="0.083"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_initialize_with_parameterized_data_should_succeed ([object Object])" time="0.081"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.plugins.trackers::TestCaseTwoGATracker" name="test_initialize_with_parameterized_data_should_succeed ([object Object])" time="0.085"/>
+</testsuite>

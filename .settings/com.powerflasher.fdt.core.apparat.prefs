@@ -1,0 +1,4 @@
+com.powerflasher.fdt.core.apparat.disabled.launchers=2ga-player-flash-TestSuiteAllCustomRunner,2ga-player-flash-TestSuite1,2ga-player-flash-FlexUnitTestRunner,2ga-player-flash-FlexUnit4Training
+com.powerflasher.fdt.core.apparat.features=
+eclipse.preferences.version=1
+useProjectSettings=true

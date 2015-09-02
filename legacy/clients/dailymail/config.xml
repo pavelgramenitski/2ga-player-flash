@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<account>andrightstervideodev</account>
+	<debugTracking>false</debugTracking>
+	<visitorNamespace>andrightstervideodev</visitorNamespace>
+	<trackingServer>wa.and.co.uk</trackingServer>
+	<charSet>UTF-8</charSet>
+	<currencyCode>GBP</currencyCode>
+	<trackClickMap>true</trackClickMap>
+	<trackLocal>true</trackLocal>
+	<dc>122</dc>
+	<eVar50>D=g</eVar50>
+	<Media>
+		<autoTrack>false</autoTrack>
+		<autoTrackNetStreams>true</autoTrackNetStreams>
+		<trackMilestones>25,50</trackMilestones>
+		<trackVars>events,eVar40,prop43,eVar4,eVar42,eVar50</trackVars>
+		<trackEvents>event10,event11,event12,event13,event14,event15</trackEvents>
+		<segmentByMilestones>true</segmentByMilestones>
+		<trackUsingContextData>true</trackUsingContextData>
+		<contextDataMapping>
+			<a.media.name>eVar40,prop43</a.media.name>
+			<a.media.segment>eVar42</a.media.segment>
+			<a.contentType>eVar4,prop4</a.contentType>
+			<a.media.timePlayed>event10</a.media.timePlayed>
+			<a.media.view>event11</a.media.view>
+			<a.media.segmentView>event14</a.media.segmentView>
+			<a.media.complete>event12</a.media.complete>
+			<a.media.milestones>
+				<item name="25">event15</item>
+				<item name="50">event13</item>
+			</a.media.milestones>
+		</contextDataMapping>
+	</Media>
+</config>

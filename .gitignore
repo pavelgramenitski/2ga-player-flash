@@ -1,0 +1,12 @@
+/README.md
+*.stamp
+/.DS_Store
+/LocalUnitTests.swf
+
+bin/test12.html
+
+bin/test3.html
+
+bin/test.html
+
+bin/test.html

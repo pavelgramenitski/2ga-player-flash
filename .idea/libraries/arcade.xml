@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="arcade">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/samples/themes/arcade/arcade.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

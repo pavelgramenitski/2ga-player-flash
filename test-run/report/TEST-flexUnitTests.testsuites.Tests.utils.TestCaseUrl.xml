@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testsuite name="flexUnitTests.testsuites.Tests.utils.TestCaseUrl" tests="3" failures="0" errors="0" skipped="0" time="0.016" hostname="Kens-MacBook-Pro.local" timestamp="2015-08-20T13:42:45">
+  <testcase classname="flexUnitTests.testsuites.Tests.utils::TestCaseUrl" name="testProtocolValueIsHttps" time="0.015"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.utils::TestCaseUrl" name="testProtocolValueIsFile" time="0.001"/>
+  <testcase classname="flexUnitTests.testsuites.Tests.utils::TestCaseUrl" name="testProtocolValueIsHttp" time="0.0"/>
+</testsuite>

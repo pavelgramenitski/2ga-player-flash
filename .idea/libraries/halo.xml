@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="halo">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/themes/Halo/halo.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="automation">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_dmv.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_flashflexkit.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_air.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/qtp.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_agent.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_airspark.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation_spark.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/qtp_air.swc!/" />
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/frameworks/libs/automation/automation.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

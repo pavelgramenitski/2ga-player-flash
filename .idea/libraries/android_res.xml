@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android-res">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/sdk/4.6.0/lib/android/lib/resources/android-res.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
